@@ -193,6 +193,12 @@ function githubInputs() {
   const imageOverride =
     core.getInput("image-override", { required: false }) || undefined;
 
+  const sourceTypeOverride =
+    core.getInput("source-type-override", { required: false }) || undefined;
+
+  const sourceLocationOverride =
+    core.getInput("source-location-override", { required: false }) || undefined;
+
   const envPassthrough = core
     .getInput("env-vars-for-codebuild", { required: false })
     .split(",")
@@ -222,6 +228,8 @@ function githubInputs() {
     computeTypeOverride,
     environmentTypeOverride,
     imageOverride,
+    sourceTypeOverride,
+    sourceLocationOverride,
     envPassthrough,
     updateInterval,
     updateBackOff,
@@ -240,6 +248,8 @@ function inputs2Parameters(inputs) {
     computeTypeOverride,
     environmentTypeOverride,
     imageOverride,
+    sourceTypeOverride,
+    sourceLocationOverride,
     envPassthrough = [],
     disableSourceOverride,
   } = inputs;
@@ -267,6 +277,8 @@ function inputs2Parameters(inputs) {
     computeTypeOverride,
     environmentTypeOverride,
     imageOverride,
+    sourceTypeOverride,
+    sourceLocationOverride,
     environmentVariablesOverride,
   };
 }
