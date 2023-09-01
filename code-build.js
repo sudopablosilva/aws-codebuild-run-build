@@ -248,8 +248,6 @@ function inputs2Parameters(inputs) {
     computeTypeOverride,
     environmentTypeOverride,
     imageOverride,
-    sourceTypeOverride,
-    sourceLocationOverride,
     envPassthrough = [],
     disableSourceOverride,
   } = inputs;
@@ -257,8 +255,8 @@ function inputs2Parameters(inputs) {
   const sourceOverride = !disableSourceOverride
     ? {
         sourceVersion: sourceVersion,
-        sourceTypeOverride: "GITHUB",
-        sourceLocationOverride: `https://github.com/${owner}/${repo}.git`,
+        sourceTypeOverride: inputs.sourceTypeOverride,
+        sourceLocationOverride: inputs.sourceLocationOverride,
       }
     : {};
 
@@ -277,8 +275,6 @@ function inputs2Parameters(inputs) {
     computeTypeOverride,
     environmentTypeOverride,
     imageOverride,
-    sourceTypeOverride,
-    sourceLocationOverride,
     environmentVariablesOverride,
   };
 }
